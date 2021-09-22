@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:clickable="false"
+    android:focusable="false">
+
+    <TextView
+        android:id="@+id/medicineName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/medicine_name"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:clickable="false"
+        android:focusable="false">
+    </TextView>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2CBDBDC8"
+            android:padding="8dp"
+            android:text="@string/dose"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/dose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#202C2C90"
+            android:padding="8dp"
+            android:text="@string/sample_dose"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+        </TextView>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:padding="8dp"
+            android:text="@string/unit"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#202C2C90"
+            android:padding="8dp"
+            android:text="@string/sample_unit"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+
+        </TextView>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:padding="8dp"
+            android:text="@string/daily_frequency"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/freq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#202C2C90"
+            android:padding="8dp"
+            android:text="@string/sample_freq"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+        </TextView>
+    </TableRow>
+
+
+
+
+</TableLayout>

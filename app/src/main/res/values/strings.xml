@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">jxie1-MedBook</string>
+    <string name="medicine_name">Medicine_Name</string>
+    <string name="start_date">Start Date:</string>
+    <string name="sample_date">2000–01–01</string>
+    <string name="unit">\u0020\u0020Unit</string>
+    <string name="dose">\u0020\u0020Dose</string>
+    <string name="sample_dose">10</string>
+    <string name="sample_unit">mg</string>
+    <string name="daily_frequency">\u0020\u0020Daily Frequency</string>
+    <string name="sample_freq">3</string>
+    <string name="add_medicine">ADD MEDICINE</string>
+    <string name="delete_medicine">DELETE MEDICINE</string>
+    <string name="enter_medicine">Medicine Name</string>
+    <string name="date">\u0020\u0020Date</string>
+    <string name="_2000_01_01">2000–01-01</string>
+    <string name="unit_mg">mg</string>
+    <string name="unit_mcg">mcg</string>
+    <string name="unit_drop">drop</string>
+    <string name="confirm">Confirm</string>
+    <string name="_2000">2000</string>
+    <string name="_01">01</string>
+</resources>
