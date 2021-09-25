@@ -113,108 +113,62 @@ public class MedicineFragment extends DialogFragment {
             medicineDay.setText(date.substring(8,10));
         }
 
-        if (!MainActivity.mode && MainActivity.selection != null) {
-            // This make sure the functionality: Edit. Error handled
-
-            return builder
-                    .setView(view)
-                    .setTitle("Edit Medicine")
-                    .setNegativeButton("Cancel", null)
-                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            String name = medicineName.getText().toString();
-                            int unitID = medicineUnit.getCheckedRadioButtonId();
-                            String unit = "mg"; // default
-                            if (unitID == mg.getId()) {
-                                unit = "mg";
-                            } else if (unitID == mcg.getId()){
-                                unit = "mcg";
-                            } else if (unitID == drop.getId()) {
-                                unit = "drop";
-                            }
-
-                            String day = medicineDay.getText().toString();
-                            String month = medicineMonth.getText().toString();
-                            String year = medicineYear.getText().toString();
-                            String doseStr = medicineDose.getText().toString();
-                            String freqStr = medicineFreq.getText().toString();
-
-                            String inputDateString = year+"-"+month+"-"+day;
-
-                            if (TextUtils.isEmpty(day) || TextUtils.isEmpty(month) ||
-                                    TextUtils.isEmpty(year) || TextUtils.isEmpty(name) ||
-                                    TextUtils.isEmpty(doseStr) || TextUtils.isEmpty(freqStr)) {
-                                Toast.makeText(view.getContext(), "Please Enter All Required Information!", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-
-                            Float dose = Float.parseFloat(doseStr);
-                            Integer freq = Integer.parseInt(freqStr);
-
-                            Date date = new Date();
-                            try {
-                                date = dateFormat.parse(inputDateString);
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                            Medicine newMed = new Medicine(date, name, dose, unit, freq);
-                            listener.onEditConfirmPressed(newMed);
-                        }
-                    }).create();
-
-
-        } else {
-
-            return builder
-                    .setView(view)
-                    .setTitle("Add Medicine")
-                    .setNegativeButton("Cancel", null)
-                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            String name = medicineName.getText().toString();
-                            int unitID = medicineUnit.getCheckedRadioButtonId();
-                            String unit = "N/A";
-                            if (unitID == mg.getId()) {
-                                unit = "mg";
-                            } else if (unitID == mcg.getId()){
-                                unit = "mcg";
-                            } else if (unitID == drop.getId()) {
-                                unit = "drop";
-                            }
-
-                            String day = medicineDay.getText().toString();
-                            String month = medicineMonth.getText().toString();
-                            String year = medicineYear.getText().toString();
-                            String doseStr = medicineDose.getText().toString();
-                            String freqStr = medicineFreq.getText().toString();
-                            String inputDateString = year+"-"+month+"-"+day;
-
-                            if (TextUtils.isEmpty(day) || TextUtils.isEmpty(month) ||
-                                    TextUtils.isEmpty(year) || TextUtils.isEmpty(name) ||
-                                    TextUtils.isEmpty(doseStr) || TextUtils.isEmpty(freqStr)) {
-                                Toast.makeText(view.getContext(), "Please Enter All Required Information!", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-
-                            Float dose = Float.parseFloat(doseStr);
-                            Integer freq = Integer.parseInt(freqStr);
-
-                            Date date = new Date();
-                            try {
-                                date = dateFormat.parse(inputDateString);
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-
-                            Medicine newMed = new Medicine(date, name, dose, unit, freq);
-                            listener.onAddConfirmPressed(newMed);
-                        }
-                    }).create();
-
+        String title = "Edit Medicine";
+        if (MainActivity.mode || MainActivity.selection==null) {
+            title = "Add Medicine";
         }
 
+        return builder
+                .setView(view)
+                .setTitle(title)
+                .setNegativeButton("Cancel", null)
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String name = medicineName.getText().toString();
+                        int unitID = medicineUnit.getCheckedRadioButtonId();
+                        String unit = "mg"; // default
+                        if (unitID == mg.getId()) {
+                            unit = "mg";
+                        } else if (unitID == mcg.getId()){
+                            unit = "mcg";
+                        } else if (unitID == drop.getId()) {
+                            unit = "drop";
+                        }
+
+                        String day = medicineDay.getText().toString();
+                        String month = medicineMonth.getText().toString();
+                        String year = medicineYear.getText().toString();
+                        String doseStr = medicineDose.getText().toString();
+                        String freqStr = medicineFreq.getText().toString();
+
+                        String inputDateString = year+"-"+month+"-"+day;
+
+                        if (TextUtils.isEmpty(day) || TextUtils.isEmpty(month) ||
+                                TextUtils.isEmpty(year) || TextUtils.isEmpty(name) ||
+                                TextUtils.isEmpty(doseStr) || TextUtils.isEmpty(freqStr)) {
+                            Toast.makeText(view.getContext(), "Please Enter All Required Information!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        Float dose = Float.parseFloat(doseStr);
+                        Integer freq = Integer.parseInt(freqStr);
+
+                        Date date = new Date();
+                        try {
+                            date = dateFormat.parse(inputDateString);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                        Medicine newMed = new Medicine(date, name, dose, unit, freq);
+                        if (!MainActivity.mode && MainActivity.selection!=null) {
+                            listener.onEditConfirmPressed(newMed);
+                        } else {
+                            listener.onAddConfirmPressed(newMed);
+                        }
+                    }
+                }).create();
     }
 
     public static MedicineFragment newInstance(Medicine medicine) {
