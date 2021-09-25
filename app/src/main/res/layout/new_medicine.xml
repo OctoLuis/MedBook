@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newMedicineLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:shrinkColumns="0"
+    android:stretchColumns="1"
+    android:layout_gravity="top">
+
+
+    <EditText
+        android:id="@+id/new_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:inputType="text"
+        android:hint="@string/enter_medicine"
+        android:textColor="@color/black"
+        android:textSize="28sp">
+
+    </EditText>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:padding="8dp"
+            android:text="@string/date"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+        </TextView>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <EditText
+                android:id="@+id/new_year"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#202C2C90"
+                android:hint="@string/_2021"
+                android:maxLength="4"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="#2C2C2C"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/new_month"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#202C2C90"
+                android:layout_weight="1"
+                android:hint="@string/_12"
+                android:maxLength="2"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:textColor="#2C2C2C"
+                android:textSize="20sp"
+                android:gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/new_day"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#202C2C90"
+                android:layout_weight="1"
+                android:hint="@string/_31"
+                android:maxLength="2"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="#2C2C2C"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
+
+        </TableRow>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2CBDBDC8"
+            android:padding="8dp"
+            android:text="@string/daily_frequency"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/new_freq"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_2"
+            android:hint="@string/sample_freq"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+
+        </EditText>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2CBDBDC8"
+            android:padding="8dp"
+            android:text="@string/dose"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/new_dose"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#202C2C90"
+            android:digits="0123456789."
+            android:padding="8dp"
+            android:inputType="number"
+            android:hint="@string/sample_dose"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+        </EditText>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:padding="8dp"
+            android:text="@string/unit"
+            android:textColor="#2C2C2C"
+            android:textSize="20sp">
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/new_unit"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/grey_3">
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/unit_mg_1"
+                android:padding="8dp"
+                android:text="@string/unit_mg"
+                android:layout_gravity="center"
+                android:checked="true"
+                android:textSize="20sp"
+                android:layout_weight="1" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/unit_mcg_1"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:text="@string/unit_mcg"
+                android:textSize="20sp"
+                android:checked="false"
+                android:layout_weight="1" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/unit_drop_1"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:text="@string/unit_drop"
+                android:textSize="20sp"
+                android:checked="false"
+                android:layout_weight="1" />
+        </RadioGroup>
+    </TableRow>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"/>
+
+
+</TableLayout>

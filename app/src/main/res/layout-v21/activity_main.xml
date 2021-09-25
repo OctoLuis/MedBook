@@ -24,7 +24,6 @@
 
     </ListView>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -39,8 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Total Doses: "
-            android:textColor="#2C2C2C"
             android:textSize="20sp"
+            android:textColor="#2C2C2C"
             android:layout_weight="1"
             android:gravity="end">
 
@@ -52,8 +51,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
-            android:textColor="#2C2C2C"
             android:text="0"
+            android:textColor="#2C2C2C"
             android:textSize="20sp">
 
         </TextView>
@@ -70,12 +69,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFFFF"
-            android:layout_marginLeft="10dp"
             android:clickable="true"
             app:srcCompat="@android:drawable/ic_input_add"
-            android:contentDescription="@string/add_medicine"
             android:focusable="true"
-            android:layout_marginStart="10dp"
+            android:contentDescription="@string/add_medicine"
+            android:layout_marginLeft="10dp"
             tools:ignore="UsingOnClickInXml" />
 
         <Button
@@ -83,12 +81,11 @@
             android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:text="@string/edit"
             android:visibility="invisible"
-            android:tag="EDIT_MED"
+            android:text="@string/edit"
             android:textSize="18sp"
             style="?android:attr/buttonBarButtonStyle"
-            tools:ignore="OnClick,UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:id="@+id/deleteMedicine"
@@ -97,9 +94,11 @@
             android:textSize="18sp"
             android:layout_weight="1"
             android:onClick="deleteMedicine"
+            android:visibility="invisible"
             android:text="@string/delete_medicine"
             style="?android:attr/buttonBarButtonStyle"
             tools:ignore="UsingOnClickInXml" />
+
 
     </LinearLayout>
 
