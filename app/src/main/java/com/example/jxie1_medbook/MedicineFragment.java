@@ -25,6 +25,7 @@ import java.util.Date;
 
 /*  Class AddMedicineFragment
     @Author Louie Xie
+    To create a dialog fragment for ADDing and EDITing medicines.
  */
 public class MedicineFragment extends DialogFragment {
     private EditText medicineName;
@@ -44,6 +45,7 @@ public class MedicineFragment extends DialogFragment {
 
     private OnFragmentInteractionListener listener;
 
+    // Interface for mainActivity
     public interface OnFragmentInteractionListener {
         void onAddConfirmPressed(Medicine medicine);
         void onEditConfirmPressed(Medicine medicine);
@@ -77,6 +79,7 @@ public class MedicineFragment extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
+        // Get information from bundle:
         if (getArguments() != null) {
             String date = getArguments().getString("date");
             String unit = getArguments().getString("unit");
@@ -111,6 +114,7 @@ public class MedicineFragment extends DialogFragment {
         }
 
         if (!MainActivity.mode && MainActivity.selection != null) {
+            // This make sure the functionality: Edit. Error handled
 
             return builder
                     .setView(view)

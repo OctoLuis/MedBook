@@ -13,15 +13,48 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+/*
+   Copyright 2021 Louie Xie
 
-public class MainActivity extends AppCompatActivity
-        implements MedicineFragment.OnFragmentInteractionListener{
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+/*  Class MainActivity
+    @author Louie Xie
+    @CCID jxie1
+
+    MainActivity, construct the main layout of the application.
+    Call to use functionalities upon on click actions.
+    lick the floating action button (+) to add a new medicine.
+    Edit and Delete function only visible if you make a valid selection.
+        Edit: Select any medicine from the listView and click Edit on the bottom side to edit.
+              Information will be provides for the medicine and you can just edit whatever you want.
+        Delete: Select any medicine from the listView and click Delete to delete your selection.
+
+    Total # of doses displayed on the bottom side of the app, and will automatically update upon
+    each modification to the listView (add, edit, delete).
+
+    References:
+        Lab Materials
+        Android Studio Guide
+        stackoverflow
+ */
+public class MainActivity extends AppCompatActivity implements MedicineFragment.OnFragmentInteractionListener {
 
     ListView medicineList;
     static ArrayAdapter<Medicine> medicineAdapter;
     static ArrayList<Medicine> dataList = new ArrayList<>();
     static Integer selection;
-    static Boolean mode = true; // true: add, false: edit
+    static Boolean mode = true; // true: add medicine, false: edit existing medicine
 
 
     @Override
@@ -31,7 +64,7 @@ public class MainActivity extends AppCompatActivity
 
         medicineList = findViewById(R.id.medicineList);
 
-        medicineAdapter = new MyAdapter(this, R.layout.medicine_content, dataList);
+        medicineAdapter = new MedicineAdapter(this, R.layout.medicine_content, dataList);
         medicineList.setAdapter(medicineAdapter);
 
         final Button edit = findViewById(R.id.EditMedicine);
@@ -39,7 +72,8 @@ public class MainActivity extends AppCompatActivity
 
 
         TextView totalMed = findViewById(R.id.total);
-        totalMed.setText(((Integer) dataList.size()).toString());
+        Integer doseTotal = doseTotalCalculator.numberOfDoses(dataList);
+        totalMed.setText(doseTotal.toString());
 
         medicineList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

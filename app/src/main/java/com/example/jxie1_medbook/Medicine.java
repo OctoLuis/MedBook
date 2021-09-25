@@ -3,7 +3,13 @@ package com.example.jxie1_medbook;
 import java.io.Serializable;
 import java.util.Date;
 
-//    Class: Medicine
+/*
+    Class: Medicine
+    @author Louie Xie
+    Medicine class contains all required information for a medicine:
+     the date start to take, the name of the medicine
+     the dose and unit of dose, the daily frequency
+ */
 public class Medicine implements Serializable {
     // Class members:
     private Date dateStart;
@@ -12,7 +18,14 @@ public class Medicine implements Serializable {
     private String doseUnit;
     private Integer dailyFrequency;
 
-    // Constructor:
+    /*
+        Constructor of Medicine:
+        @param Date start
+        @param String name
+        @param Float amount
+        @param String unit
+        @param Integer freq
+     */
     public Medicine(Date start, String name, Float amount, String unit, Integer freq) {
         this.dateStart = start;
         this.setName(name);
@@ -31,6 +44,7 @@ public class Medicine implements Serializable {
     }
 
     public void setName(String name) {
+        // To restrict the limit of the name length.
         if (name.length() > 40) {
             this.name = name.substring(0, 40);
         } else {

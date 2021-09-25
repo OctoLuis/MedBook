@@ -14,9 +14,14 @@ import androidx.annotation.Nullable;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+/*  Class: MedicineAdapter
+    @author: Louie Xie
 
-public class MyAdapter extends ArrayAdapter<Medicine> {
-    public MyAdapter(Context context,int position, ArrayList<Medicine> medicines) {
+    Custom ArrayAdapter for Medicine
+    It bridges ArrayList and ListView, and sets Texts for each required Views
+ */
+public class MedicineAdapter extends ArrayAdapter<Medicine> {
+    public MedicineAdapter(Context context, int position, ArrayList<Medicine> medicines) {
         super(context, position, medicines);
     }
 
